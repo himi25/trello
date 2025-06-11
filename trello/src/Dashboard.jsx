@@ -13,16 +13,19 @@ import AddForm from './buttons/AddForm';
 
 function Dashboard() {
   const [showCard, setShowCard] = useState(false);
-  const [list, setList] = useState({})
+  const [list, setList] = useState(() => {
+    const saved = localStorage.getItem("myBoard");
+    return saved ? JSON.parse(saved) : {};
+  });
   
   const saveList = (text) => {
-    if (text.trim() === '') {
-      return;
-    }
-    list[text] = []
-    setList(list)
-    setShowCard(false)
-  }
+    if (text.trim() === '') return;
+  
+    const updatedList = { ...list, [text]: [] };  // make a new object
+    setList(updatedList);
+    localStorage.setItem("myBoard", JSON.stringify(updatedList));  // also save here
+    setShowCard(false);
+  };
   return (
     <>
 

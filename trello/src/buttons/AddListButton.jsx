@@ -10,7 +10,7 @@ function AddListButton({setShowCard}){
 
         <div
             onClick={() => setShowCard(true)}
-            className='bg-[#A488D3] h-12 rounded-2xl w-72 p-4 text-white font-bold gap-2 flex items-center hover:bg-[#6C4B94] cursor-pointer'
+            className='bg-[#A488D3] h-12 rounded-2xl min-w-72 p-4 text-white font-bold gap-2 flex items-center hover:bg-[#6C4B94] cursor-pointer'
           >
             <FontAwesomeIcon icon={faPlus} /> Add another list
           </div>
